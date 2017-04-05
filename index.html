@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+    <style>
+        .button{
+            margin-left: 315px;
+        }
+        #Arab1{
+            outline: none;
+            border: none;
+            background-color: salmon;
+            border-radius: 5px;
+            width: 150px;
+            font-size: 15px;
+            padding: 9px;
+        }
+        #Arab2{
+            outline: none;
+            border: none;
+            margin-left: 330px;
+            background-color: lightskyblue;
+            border-radius: 5px;
+            width: 150px;
+            font-size: 15px;
+            padding: 9px;
+        }
+
+        #region{
+            position: relative;
+            left: 255px;
+            font-family: monospace;
+            font-size: 20px;    
+        }
+
+    </style>
+
+      <script type="text/javascript">
+
+      window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {            
+          title:{
+            text: "Population Male/Female Age 15-64"              
+          },
+
+            //data source: http://databank.worldbank.org/data/reports.aspx?source=gender-statistics
+
+          data: [     
+          { //dataSeries 
+           type: "line",
+           name: "Male",
+           showInLegend: true,
+           dataPoints: [
+           { label: "1995", y: 71806989 },
+           { label: "2000", y: 86461386 },
+           { label: "2005", y: 97917529 },                                    
+           { label: "2010", y: 115338924 },
+           { label: "2015", y: 128445914 }
+           ]
+         },
+
+         { //dataSeries
+
+          type: "line",
+          name: "Female", 
+          showInLegend: true,               
+          dataPoints: [
+          { label: "1995", y: 67558426 },
+          { label: "2000", y: 79001694 },
+          { label: "2005", y: 91440054 },                                    
+          { label: "2010", y: 105036141 },
+          { label: "2015", y: 116329970 }
+          ]
+        }
+        ],
+     /** Set axisY properties here*/
+        axisY:{
+          suffix: "M"
+        }    
+      });
+
+    chart.render();
+    }
+
+    </script>
+
+    <script type="text/javascript" src="canvasjs.min.js"></script>
+
+    </head>
+    
+<body>
+    
+  <div id="chartContainer" style="height: 500px; width: 100%;">
+  </div>
+    
+    <div class= "button">
+    <button id="Arab1"> Year 1995 - 2015</button>
+    <button id="Arab2"> Year 1965 - 1985</button>
+    <h3 id="region">Arab World</h3>
+    </div>
+    
+    <script>
+        
+        var first_data = document.querySelector('#Arab1');
+        var second_data = document.querySelector('#Arab2');
+        
+        first_data.addEventListener('click', function(){
+            var chart = new CanvasJS.Chart("chartContainer", {            
+      title:{
+        text: "Population Male/Female Age 15-64"              
+      },
+
+      data: [  
+      { 
+       type: "line",
+       name: "Male",
+       showInLegend: true,
+       dataPoints: [
+       { label: "1995", y: 71806989 },
+       { label: "2000", y: 86461386 },
+       { label: "2005", y: 97917529 },                                    
+       { label: "2010", y: 115338924 },
+       { label: "2015", y: 128445914 }
+       ]
+     },
+
+     { 
+
+      type: "line",
+      name: "Female", 
+      showInLegend: true,               
+      dataPoints: [
+      { label: "1995", y: 67558426 },
+      { label: "2000", y: 79001694 },
+      { label: "2005", y: 91440054 },                                    
+      { label: "2010", y: 105036141 },
+      { label: "2015", y: 116329970 }
+      ]
+    }
+    ],
+
+    axisY:{
+      suffix: "M"
+    }    
+  });
+
+chart.render();
+})
+        
+        second_data.addEventListener('click', function(){
+            var chart = new CanvasJS.Chart("chartContainer", {            
+      title:{
+        text: "Population Male/Female Age 15-64"              
+      },
+
+      data: [   
+      {  
+       type: "line",
+       name: "Male",
+       showInLegend: true,
+       dataPoints: [
+       { label: "1965", y: 27664027 },
+       { label: "1970", y: 31710500 },
+       { label: "1975", y: 36707065 },                                    
+       { label: "1980", y: 43860109 },
+       { label: "1985", y: 51805256 }
+       ]
+     },
+
+     { 
+
+      type: "line",
+      name: "Female", 
+      showInLegend: true,               
+      dataPoints: [
+      { label: "1965", y: 27505936 },
+      { label: "1970", y: 31443869 },
+      { label: "1975", y: 36040547 },                                    
+      { label: "1980", y: 42340404 },
+      { label: "1985", y: 49641628 }
+      ]
+    }
+    ],
+                
+    axisY:{
+      suffix: "M"
+    }    
+  });
+
+chart.render();
+});
+        
+    </script>
+    
+</body>
+    
+</html>
